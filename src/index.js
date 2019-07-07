@@ -325,7 +325,7 @@
           groupedSrc = bucketSources(_sources);
 
           // Overwrite defualt sourcePicer function
-          var _customSourcePicker = function(_player, _sources, _label){
+          var _customSourcePicker = function(_player, _sources){
             player.tech_.ytPlayer.setPlaybackQuality(_sources[0]._yt);
             return player;
           };

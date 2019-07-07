@@ -1,5 +1,5 @@
 {
-  "name": "videojs-resolution-switcher-for-videojs6",
+  "name": "@my-videojs/videojs-resolution-switcher",
   "port": "8000",
   "version": "1.0.0",
   "description": "videojs的清晰度选择插件（videojs6.x）",
@@ -15,7 +15,7 @@
     "site": "md-tools build",
     "build": "npm run clean && npm run babel && shx cp -rf src/style/*.less lib/style",
     "clean": "shx rm -rf lib site && shx echo clean Done",
-    "pub": "npm run build && npm publish"
+    "pub": "npm run build && npm publish --access public"
   },
   "author": "mraiguo <mraiguo@gmail.com>",
   "files": [

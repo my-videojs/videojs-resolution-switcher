@@ -37,6 +37,9 @@ npm run site
 选择清晰度
 
 ```css
+.main-container {
+  overflow: visible;
+}
 .markdown ul > li {
   margin-left: 0;
   padding-left: 0;
@@ -46,8 +49,8 @@ npm run site
 ```jsx
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
-import 'videojs-resolution-switcher-for-videojs6'
-import 'videojs-resolution-switcher-for-videojs6/lib/style'
+import '@my-videojs/videojs-resolution-switcher'
+import '@my-videojs/videojs-resolution-switcher/lib/style'
 
 class App extends React.Component {
   componentDidMount () {
@@ -82,12 +85,12 @@ class App extends React.Component {
   addSwitcher (player) {
      player.updateSrc(
         [{
-          src: 'http://os71std62.bkt.clouddn.com/test.mp4',
+          src: '//www.w3school.com.cn/example/html5/mov_bbb.mp4',
           type: 'video/mp4',
           label: '标清',
           res: 360
         }, {
-          src: 'http://os71std62.bkt.clouddn.com/test-hd.mp4',
+          src: '//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
           type: 'video/mp4',
           label: '高清',
           res: 720
