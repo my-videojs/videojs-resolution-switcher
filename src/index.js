@@ -70,6 +70,7 @@
         // Remember player state
         var currentTime = this.player_.currentTime();
         var isPaused = this.player_.paused();
+        var src = this.player_.src()
         this.showAsLabel();
 
         // add .current class
@@ -100,7 +101,10 @@
             this.player_.play();
             this.player_.handleTechSeeked_();
           }
-          this.player_.trigger('resolutionchange');
+          // 如果src没有改变，不触发切换源事件
+          if (src !== this.src()) {
+            this.player_.trigger('resolutionchange');
+          }
         });
       }
     });
