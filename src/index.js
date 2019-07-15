@@ -92,20 +92,21 @@
         if(this.player_.techName_ !== 'Youtube' && this.player_.preload() === 'none' && this.player_.techName_ !== 'Flash') {
           handleSeekEvent = 'timeupdate';
         }
-        setSourcesSanitized(this.player_, this.src, this.options_.label, customSourcePicker).one(handleSeekEvent, function() {
-          this.player_.currentTime(currentTime);
-          this.player_.handleTechSeeked_();
-          if(!isPaused){
-            // Start playing and hide loadingSpinner (flash issue ?)
-            /* DECEiFER: Modified for video.js 6.x */
-            this.player_.play();
+
+        // 如果src没有改变，不触发切换源事件
+        if (src !== this.src[0].src) {
+          setSourcesSanitized(this.player_, this.src, this.options_.label, customSourcePicker).one(handleSeekEvent, function() {
+            this.player_.currentTime(currentTime);
             this.player_.handleTechSeeked_();
-          }
-          // 如果src没有改变，不触发切换源事件
-          if (src !== this.src()) {
+            if(!isPaused){
+              // Start playing and hide loadingSpinner (flash issue ?)
+              /* DECEiFER: Modified for video.js 6.x */
+              this.player_.play();
+              this.player_.handleTechSeeked_();
+            }
             this.player_.trigger('resolutionchange');
-          }
-        });
+          });
+        }
       }
     });
 
