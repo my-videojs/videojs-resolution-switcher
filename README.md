@@ -59,6 +59,7 @@ class App extends React.Component {
       return
     }
     const videoJsOptions = {
+      playbackRates: [0.75, 1, 1.25, 1.5, 1.75, 2],
       controls: true,
       plugins: {
         videoJsResolutionSwitcher: {
@@ -94,7 +95,7 @@ class App extends React.Component {
           type: 'video/mp4',
           label: '高清',
           res: 720
-        }]
+                }]
     );
     player.on('resolutionchange', function() {
         console.info('Source changed to %s', player.src())

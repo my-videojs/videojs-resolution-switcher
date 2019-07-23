@@ -1,7 +1,7 @@
 {
   "name": "@my-videojs/videojs-resolution-switcher",
   "port": "8000",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "videojs的清晰度选择插件（videojs6.x）",
   "license": "MIT",
   "main": "lib/index.js",

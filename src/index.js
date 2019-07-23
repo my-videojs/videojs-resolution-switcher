@@ -70,7 +70,8 @@
         // Remember player state
         var currentTime = this.player_.currentTime();
         var isPaused = this.player_.paused();
-        var src = this.player_.src()
+        var src = this.player_.src();
+        var playbackRate = this.player_.playbackRate();
         this.showAsLabel();
 
         // add .current class
@@ -98,6 +99,7 @@
           setSourcesSanitized(this.player_, this.src, this.options_.label, customSourcePicker).one(handleSeekEvent, function() {
             this.player_.currentTime(currentTime);
             this.player_.handleTechSeeked_();
+            this.player_.playbackRate(playbackRate);
             if(!isPaused){
               // Start playing and hide loadingSpinner (flash issue ?)
               /* DECEiFER: Modified for video.js 6.x */
